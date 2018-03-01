@@ -1,4 +1,8 @@
 
 Haskell/clock-0\.4\.1\.3/
-
 Haskell/timeit-2\.0/
+
+*.o
+*.hi
+*.class
+*.in

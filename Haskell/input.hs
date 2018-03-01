@@ -18,11 +18,11 @@ main = do
     evaluate (quickSort fin) -- Change sorting functions here
     end <- getCurrentTime        
 
-    print "TestCase: "
-    print fin
-    print "Outpout: "    
-    print (quickSort fin)
-    print "Time: "    
-    print (diffUTCTime end start)    
+    -- print "TestCase: "
+    -- print fin
+    -- print "Outpout: "    
+    -- print (quickSort fin)
+    -- print "Time: "    
+    -- print (diffUTCTime end start)    
 
     hClose handle
