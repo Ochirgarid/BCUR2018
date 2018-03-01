@@ -6,3 +6,5 @@ Haskell/timeit-2\.0/
 *.hi
 *.class
 *.in
+*.exe
+*.out
