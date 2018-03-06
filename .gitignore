@@ -11,3 +11,6 @@ Haskell/timeit-2\.0/
 
 Tmp/
 DS/
+Python/__pycache__/
+
+
