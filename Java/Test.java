@@ -11,11 +11,16 @@ public class Test {
     }
     
     // System.out.println(binSearch(25, fin));
-    Sort s1 = new Sort();
+    // Sort s1 = new Sort();
     int[] fin = vals.stream().mapToInt(i -> i).toArray();
-    s1.selectionSort(fin);
+    // s1.selectionSort(fin);
     // insertionSort(fin);
+
+    FP_Sort sort = new FP_Sort();
+
     System.out.println(vals);
+    sort.selectionSort(fin, 0);
+
     for (int i=0; i<fin.length; i++) {
       System.out.print(fin[i] + " ");
     }

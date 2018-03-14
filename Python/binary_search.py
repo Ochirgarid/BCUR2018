@@ -11,5 +11,5 @@ def bin_search(fin, key):
             high = mid - 1
         else:
             low = mid + 1
-    return -(low + 1)
+    return -1
 
