@@ -1,0 +1,59 @@
+	Wed Mar 28 17:21 2018 Time and Allocation Profiling Report  (Final)
+
+	   Demo +RTS -p -sprogram.stats -RTS
+
+	total time  =        0.00 secs   (0 ticks @ 1000 us, 1 processor)
+	total alloc =     143,856 bytes  (excludes profiling overheads)
+
+COST CENTRE MODULE           %time %alloc
+
+CAF         GHC.IO.Encoding    0.0    2.3
+CAF         GHC.IO.Handle.FD   0.0   24.0
+main        Main               0.0   72.3
+
+
+                                                             individual     inherited
+COST CENTRE        MODULE                  no.     entries  %time %alloc   %time %alloc
+
+MAIN               MAIN                     51           0    0.0    0.5     0.0  100.0
+ main              Main                    103           0    0.0   71.8     0.0   72.0
+  selectionSort    SelectionSort           108           1    0.0    0.1     0.0    0.1
+  main.singlewords Main                    107           1    0.0    0.1     0.0    0.1
+  main.fin         Main                    104           1    0.0    0.0     0.0    0.1
+   readF           Main                    106           0    0.0    0.1     0.0    0.1
+ CAF               Main                     97           0    0.0    0.0     0.0    0.5
+  readF            Main                    105           1    0.0    0.0     0.0    0.0
+  main             Main                    102           1    0.0    0.5     0.0    0.5
+ CAF               GHC.IO.Handle.FD         91           0    0.0   24.0     0.0   24.0
+ CAF               GHC.Conc.Signal          86           0    0.0    0.5     0.0    0.5
+ CAF               GHC.IO.Encoding          84           0    0.0    2.3     0.0    2.3
+ CAF               GHC.IO.FD                74           0    0.0    0.0     0.0    0.0
+ CAF               GHC.IO.Encoding.Iconv    69           0    0.0    0.2     0.0    0.2
+
+
+./Demo +RTS -p -sprogram.stats 
+         252,400 bytes allocated in the heap
+           6,232 bytes copied during GC
+          47,112 bytes maximum residency (1 sample(s))
+          10,232 bytes maximum slop
+               1 MB total memory in use (0 MB lost due to fragmentation)
+
+                                     Tot time (elapsed)  Avg pause  Max pause
+  Gen  0         0 colls,     0 par    0.000s   0.000s     0.0000s    0.0000s
+  Gen  1         1 colls,     0 par    0.000s   0.000s     0.0002s    0.0002s
+
+  INIT    time    0.000s  (  0.000s elapsed)
+  MUT     time    0.000s  (  0.000s elapsed)
+  GC      time    0.000s  (  0.000s elapsed)
+  RP      time    0.000s  (  0.000s elapsed)
+  PROF    time    0.000s  (  0.000s elapsed)
+  EXIT    time    0.000s  (  0.000s elapsed)
+  Total   time    0.003s  (  0.001s elapsed)
+
+  %GC     time       5.5%  (14.8% elapsed)
+
+  Alloc rate    712,654,128 bytes per MUT second
+
+  Productivity  80.5% of total user, 217.0% of total elapsed
+
+  

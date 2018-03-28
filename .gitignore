@@ -8,7 +8,6 @@ Haskell/timeit-2\.0/
 *.in
 *.exe
 *.out
-*.prof
 *.in
 stder
 

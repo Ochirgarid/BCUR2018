@@ -16,7 +16,7 @@ main = do
     let singlewords = words contents
         fin = readF singlewords
     
-    evaluate (insertionSort fin) -- Change sorting functions here    
+    evaluate (selectionSort fin) -- Change sorting functions here    
     -- putStrLn $ show (selectionSort fin) -- printing result to see
 
     hClose handle
@@ -30,3 +30,7 @@ readF = map read
 -- ghc -prof -fprof-auto -rtsopts Demo.hs -- bit confusing
 -- ghc -O2 --make Demo.hs -prof -fprof-auto
 -- time ./Demo +RTS -s -p 
+-- OR
+-- ghc -prof -fprof-auto -fforce-recomp -rtsopts --make -O2 Demo.hs
+-- ./Demo +RTS -P -sprogram.stats -RTS -- it creates Demo.prof and program.stats
+

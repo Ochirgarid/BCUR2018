@@ -1,13 +1,22 @@
 module SelectionSort where
-import Data.List
+-- import Data.List
 
 {- 
 -- Naive implementation
 -}
 selectionSort :: (Ord a) => [a] -> [a]
 selectionSort [] = []
-selectionSort xs = m : (selectionSort (delete m xs))
+selectionSort xs = m : (selectionSort (remove m xs))
              where m = minimum xs
+
+remove _ [] = []
+remove x (y:ys) | x == y = ys
+                | otherwise = y : remove x ys
+
+-- selectionSort :: (Ord a) => [a] -> [a]
+-- selectionSort [] = []
+-- selectionSort xs = m : (selectionSort (delete m xs))
+--              where m = minimum xs
 
 {-
   Some tests
