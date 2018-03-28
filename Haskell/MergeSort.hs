@@ -3,10 +3,10 @@ module MergeSort where
 {- 
 -- Naive implementation
 -}
-merSort :: (Ord a) => [a] -> [a]
-merSort [] = []
-merSort [x] = [x]
-merSort xs = merge (merSort a) (merSort b)
+mergeSort :: (Ord a) => [a] -> [a]
+mergeSort [] = []
+mergeSort [x] = [x]
+mergeSort xs = merge (mergeSort a) (mergeSort b)
              where (a,b) = splitAt ((length xs) `div` 2) xs
 
 merge :: (Ord a) => [a]->[a] -> [a]

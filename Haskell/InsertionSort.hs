@@ -3,9 +3,9 @@ module InsertionSort where
 {- 
 -- Naive implementation
 -}
-inSort :: (Ord a) => [a] -> [a]
-inSort [] = []
-inSort (x:xs) = insert x (inSort xs)
+insertionSort :: (Ord a) => [a] -> [a]
+insertionSort [] = []
+insertionSort (x:xs) = insert x (insertionSort xs)
 
 insert :: (Ord a) => a -> [a] -> [a]
 insert x xs = takeWhile ((<=) x) xs ++ [x] ++ dropWhile ((<=) x) xs

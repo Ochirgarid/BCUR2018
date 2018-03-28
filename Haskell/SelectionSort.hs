@@ -4,9 +4,9 @@ import Data.List
 {- 
 -- Naive implementation
 -}
-selSort :: (Ord a) => [a] -> [a]
-selSort [] = []
-selSort xs = m : (selSort (delete m xs))
+selectionSort :: (Ord a) => [a] -> [a]
+selectionSort [] = []
+selectionSort xs = m : (selectionSort (delete m xs))
              where m = minimum xs
 
 {-
