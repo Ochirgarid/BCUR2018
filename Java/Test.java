@@ -5,26 +5,37 @@ public class Test {
   public static void main(String args[]) {
     Random rand = new Random();
     List<Integer> vals = new ArrayList<Integer>();
-    
-    for (int i=0; i<20; i++) {
-      vals.add(rand.nextInt(123));
+    int seed = 123;
+    int range = 30;
+    for (int i = 0; i < range; i++) {
+      vals.add(rand.nextInt(seed));
     }
     
-    // System.out.println(binSearch(25, fin));
-    // Sort s1 = new Sort();
     int[] fin = vals.stream().mapToInt(i -> i).toArray();
-    // s1.selectionSort(fin);
-    // insertionSort(fin);
+    for (int i = 0; i < fin.length; i++) {
+      System.out.print(fin[i] + " ");
+    }
 
-    FP_Sort sort = new FP_Sort();
+    // SelectionSort sort = new SelectionSort();
+    // BubbleSort bSort = new BubbleSort();
+    InsertionSort iSort = new InsertionSort();
 
-    System.out.println(vals);
-    sort.selectionSort(fin, 0);
+    /* Timing */
+    long startTime = System.nanoTime();
+    iSort.naive(fin);
+    long endTime = System.nanoTime();
+    long duration = (endTime - startTime);
+    System.out.println("\nTook: " + duration);
 
+
+    /* Showing the result */
+    System.out.println(" ");
     for (int i=0; i<fin.length; i++) {
       System.out.print(fin[i] + " ");
     }
+    System.out.println(" ");
     
+    /* Java built-in sorting methods */
     // Collections.sort(vals); //merge-sort
     // System.out.println(vals.toString());
   }
