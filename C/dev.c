@@ -5,36 +5,20 @@ void printList(int* fin);
 void swap(int a, int b, int* fin);
 int getMin(int* fin, const int length);
 
-void selectionSort(int* fin, const int size);
-
 // Main
 int main(int argc, char* argv[]) {
   int tc[] = {3, 21, 113, 109, 64, 84, 112, 85, 102, 31,
               0, 49, 32,  69,  96, 14, 106, 79, 56,  9};
 
-  // swap(0,9, tc);
-  // printList(tc);
-  // selectionSort(tc, SORTSIZE(tc));
-  // printList(tc);
+  int t[] = {3, 4, 5, 6, 0, 3, 2, 1};
+  insertionSort(t, 8);
 
-  int t[6] = {3, 4, 5, 6, 0, 3};
+  for (int c = 0; c < 8; ++c) printf("%d \n", t[c]);
 
-  printf("%d \n", getMin(tc, 6));
-  // printf("%d \n", SORTSIZE(tc));
+
   return 0;
 }
 
-void selectionSort(int* fin, int const size) {
-  int min, t, i;
-
-  printf("%d : \n", size);
-  for (t = 0; t < size - 1; ++t) {
-    for (i = t + 1; i < size; ++i) {
-      if (fin[min] < fin[i]) min = i;
-    }
-    swap(min, t, fin);
-  }
-}
 
 void swap(int a, int b, int* fin) {
   int tmp = fin[a];
@@ -50,6 +34,7 @@ int getMin(int* fin, const int length) {
 
   return minIndex;
 }
+
 void printList(int* fin) {
   for (int p = 0; p < SORTSIZE(fin); ++p) {
     printf("%d ", fin[p]);
