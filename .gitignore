@@ -13,6 +13,9 @@ stder
 
 Tmp/
 DS/
+Java/Bench
+Java/caliper-1.0-beta-2.jar
+Java/.classpath
 Python/__pycache__/
 
 
