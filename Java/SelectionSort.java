@@ -9,7 +9,7 @@ public class SelectionSort {
     }
   }
 
-  public void swap(int[] fin, int a, int b) {
+  private void swap(int[] fin, int a, int b) {
     int tmp = fin[a];
     fin[a] = fin[b];
     fin[b] = tmp;
