@@ -23,8 +23,7 @@ tc = fin.dup
 # tc = insertion_sort(tc)
 # tc = selection_sort(tc)
 # tc = merge_sort(tc)
-
-tc = heap_sort(tc)
+# tc = heap_sort(tc)
 
 # Testing
 test_sorting(fin, tc)
