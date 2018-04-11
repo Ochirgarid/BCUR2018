@@ -6,7 +6,12 @@
   ],
   "settings": {
     "files.associations": {
-      "cstdio": "c"
+      "cstdio": "c",
+      "selectionsort.h": "c",
+      "quicksort.h": "c",
+      "ios": "cpp",
+      "xiosbase": "cpp",
+      "insertionsort.h": "c"
     }
   }
 }

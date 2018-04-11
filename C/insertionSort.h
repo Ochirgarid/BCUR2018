@@ -13,8 +13,8 @@ void insertionSort(int fin[], const int N) {
   }
 }
 
-void swap(int a, int b, int* fin) {
-  int tmp = fin[a];
-  fin[a] = fin[b];
-  fin[b] = tmp;
-}
+// void swap(int a, int b, int* fin) {
+//   int tmp = fin[a];
+//   fin[a] = fin[b];
+//   fin[b] = tmp;
+// }
