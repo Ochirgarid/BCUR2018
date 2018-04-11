@@ -1,33 +1,16 @@
-#include <stdio.h>
+#include <algorithm>
+#include <iostream>
+#include <vector>
 
-void SelSort(int *a, int S);
+using namespace std;
 
-int main() { 
-  int a[5] = {30, 50, 10, 15, 25};
+void selectionSort(vector<int> &fin);
 
-  SelSort(a, 5);
-
-  for (int s = 0; s<5; ++s) {
-    printf("elm: %d", a[s]);
-  }
-
-  return 0; 
-}
-
-void SelSort(int *a, int S) {
-  int i, j, k, min;
-
-  for (i = 0; i < S - 1; ++i) {
-    k = i;
-    min = a[k];
-
-    for (j = i + 1; j < S; ++j) {
-      if (a[j] < min) {
-        k = j;
-        min = a[k];
-      }
-      a[k] = a[i];
-      a[i] = min;
-    }
+void selectionSort(std::vector<int> &fin) {
+  int i, minPos;
+  
+  for (i = 0; i < fin.size(); ++i) {
+    minPos = distance(fin.begin(), min_element(fin.begin() + i, fin.end()));
+    swap(fin[i], fin[minPos]);
   }
 }

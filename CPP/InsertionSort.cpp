@@ -1,26 +1,26 @@
-#include <stdio.h>
-// #include <vector>
+// InsertionSort.h
+// #ifndef InsertionSort
+// #define InsertionSort
 
-void insert(int *a, int S, int x);
-void insertioSort(int *a, int S);
+#include <iostream>
+#include <vector>
 
-int main() {
-  printf("BCUR 2018 /n");
+void insertionSort(std::vector<int> &fin);
+void insert(std::vector<int> &fin, int key);
 
-  int a[5] = {12,18,23,24,38};
-  
-
-
-  return 0;
+void insertionSort(std::vector<int> &fin) {
+  for (int i = 1; i < fin.size(); ++i)
+    if (fin[i] < fin[i - 1]) {
+      int tmp = fin[i];
+      int location = i;
+      do {
+        fin[location] = fin[location - 1];
+        location--;
+      } while (location > 0 && fin[location - 1] > tmp);
+      fin[location] = tmp;
+    }
 }
+// void insert(std::vector<int> &fin, int key) { std::cout << fin.size() <<
+// '\n'; }
 
-void insert(int *a, int S, int x) {
-  int j;
-  for (j = S - 1; j >= 0; --j) {
-    if (x < a[j])
-      a[j + 1] = a[j];
-    else
-      break;
-    a[j + 1] = x;
-  }
-}
+// #endif

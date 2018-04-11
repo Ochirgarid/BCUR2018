@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 #include "insertionSort.h"
 #include "quickSort.h"
@@ -34,6 +35,9 @@ int main(int argc, char* argv[]) {
   qsort(tc, INPUTS, sizeof(int), cmpfunc);
   // for (int i = 0; i < INPUTS; ++i) printf("%d ", tc[i]);
 
+  // float startTime = (float)clock()/CLOCKS_PER_SEC;  
+  // float endTime = (float)clock()/CLOCKS_PER_SEC;
+  // float timeElapsed = endTime - startTime;
 
   return 0;
 }

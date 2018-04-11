@@ -1,6 +1,8 @@
 #include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
+#include <Windows.h>
 
 #include "heapSort.h"
 #include "insertionSort.h"
@@ -8,7 +10,8 @@
 #include "quickSort.h"
 #include "selectionSort.h"
 
-#define INPUTS 100100
+#define INPUTS 10100
+#define CLOCK_PRECISION 1E9 // one billion
 
 int cmpfunc(const void* a, const void* b);
 void copyFin(int* fin, const int L, int* fout);
@@ -18,30 +21,56 @@ int main(int argc, char* argv[]) {
   char const* fileName = "../data.in";
   FILE* file = fopen(fileName, "r");
 
-  int fin[INPUTS];
+  static int fin[INPUTS];
   int f, a, p;
   for (f = 0; f < INPUTS; ++f) fscanf(file, "%d,", &fin[f]);
+
+
+
+  static int TC[INPUTS], tmp[INPUTS];
+  copyFin(fin, INPUTS, TC);
+
+
+  /* Benchmarking in Windows */  
+  LARGE_INTEGER frequency;
+  LARGE_INTEGER start;
+  LARGE_INTEGER end;
+  double elapsedSeconds;
+  QueryPerformanceFrequency(&frequency);
+  QueryPerformanceCounter(&start);
+  /* Run experiment */  
+  // insertionSort(TC, INPUTS);
+  // selectionSort(TC, INPUTS);
+  // heapSort(TC, INPUTS);
+  // quickSort(TC, 0, INPUTS - 1);
+  // mergeSort(TC, 0, INPUTS - 1, tmp);
 
   /* Sorting fin with builtin sorting function */
   qsort(fin, INPUTS, sizeof(int), cmpfunc);
   // for (p = 0; p < INPUTS; ++p) printf("%d ", fin[p]);
 
-  int TC[INPUTS], tmp[INPUTS];
-  copyFin(fin, INPUTS, TC);
-  // insertionSort(TC, INPUTS);
-  // selectionSort(TC, INPUTS);
-  // heapSort(TC, INPUTS);
-  // quickSort(TC, 0, INPUTS - 1);
-  mergeSort(TC, 0, INPUTS - 1, tmp);
+  QueryPerformanceCounter(&end);
+  elapsedSeconds = (end.QuadPart - start.QuadPart) / (double)frequency.QuadPart;
+
+  /* Benchmarking in UNIX */
+  // struct timespec start, end;
+  // int64_t total_nanoseconds = 0;
+  // clock_gettime(CLOCK_MONOTONIC, &start);
+  /* Run experiment */  
+  // clock_gettime(CLOCK_MONOTONIC, &end);
+  // total_nanoseconds += CLOCK_PRECISION*(end.tv_sec - start.tv_sec) + end.tv_nsec - start.tv_nsec;
+
 
   // printf("\nOutput: \n");
   // for (p = 0; p < INPUTS; ++p) printf("%d ", TC[p]);
 
   /* Checking fin with Test cases */
-  for (a = 0; a < INPUTS; ++a) {
-    assert(fin[a] == TC[a]);
-  }
-  printf("\nSuccessful run.\n");
+  // for (a = 0; a < INPUTS; ++a) {
+  //   assert(fin[a] == TC[a]);
+  // }
+  // printf("\nSuccessful run.\n");
+
+  printf("\nElapsed time: %f\n", elapsedSeconds);
 
   fclose(file);
   return 0;
