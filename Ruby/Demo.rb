@@ -32,12 +32,12 @@ beginning_time = Time.now
 # tc = selection_sort(tc)
 # tc = merge_sort(tc)
 # tc = heap_sort(tc)
-tc.sort! #built-in sort
 
+tc.sort! #built-in sort
 end_time = Time.now
 
 ## --> Testing
-test_sorting(fin, tc)
+# test_sorting(fin, tc)
 
 # puts "Time elapsed #{(end_time - beginning_time)*1000} milliseconds"
 puts "Time elapsed #{(end_time - beginning_time)} seconds"

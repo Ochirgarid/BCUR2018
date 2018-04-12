@@ -10,8 +10,9 @@
 #include "quickSort.h"
 #include "selectionSort.h"
 
-#define INPUTS 10100
+#define INPUTS 1000000
 #define CLOCK_PRECISION 1E9 // one billion
+#define INPUTSIZE(x) (int)(sizeof(x) / sizeof(x[0]))
 
 int cmpfunc(const void* a, const void* b);
 void copyFin(int* fin, const int L, int* fout);
@@ -21,12 +22,12 @@ int main(int argc, char* argv[]) {
   char const* fileName = "../data.in";
   FILE* file = fopen(fileName, "r");
 
+  /* Reading inputs */
   static int fin[INPUTS];
   int f, a, p;
   for (f = 0; f < INPUTS; ++f) fscanf(file, "%d,", &fin[f]);
 
-
-
+  // Preparing arrays
   static int TC[INPUTS], tmp[INPUTS];
   copyFin(fin, INPUTS, TC);
 
@@ -38,15 +39,16 @@ int main(int argc, char* argv[]) {
   double elapsedSeconds;
   QueryPerformanceFrequency(&frequency);
   QueryPerformanceCounter(&start);
+  
   /* Run experiment */  
   // insertionSort(TC, INPUTS);
   // selectionSort(TC, INPUTS);
-  // heapSort(TC, INPUTS);
+  heapSort(TC, INPUTS);
   // quickSort(TC, 0, INPUTS - 1);
   // mergeSort(TC, 0, INPUTS - 1, tmp);
 
   /* Sorting fin with builtin sorting function */
-  qsort(fin, INPUTS, sizeof(int), cmpfunc);
+  // qsort(fin, INPUTS, sizeof(int), cmpfunc);
   // for (p = 0; p < INPUTS; ++p) printf("%d ", fin[p]);
 
   QueryPerformanceCounter(&end);
@@ -60,17 +62,15 @@ int main(int argc, char* argv[]) {
   // clock_gettime(CLOCK_MONOTONIC, &end);
   // total_nanoseconds += CLOCK_PRECISION*(end.tv_sec - start.tv_sec) + end.tv_nsec - start.tv_nsec;
 
-
-  // printf("\nOutput: \n");
-  // for (p = 0; p < INPUTS; ++p) printf("%d ", TC[p]);
-
   /* Checking fin with Test cases */
   // for (a = 0; a < INPUTS; ++a) {
   //   assert(fin[a] == TC[a]);
   // }
   // printf("\nSuccessful run.\n");
+  // printf("\nOutput: \n");
+  // for (p = 0; p < INPUTS; ++p) printf("%d ", TC[p]);
 
-  printf("\nElapsed time: %f\n", elapsedSeconds);
+  printf("\nElapsed time: %f seconds\n", elapsedSeconds);
 
   fclose(file);
   return 0;

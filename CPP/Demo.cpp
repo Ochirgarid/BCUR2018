@@ -1,34 +1,61 @@
 /* BCUR 2018 */
 
-#include <cstdlib>
-#include <iostream>
-#include <fstream>
-#include <vector>
 #include <algorithm>
+#include <cstdlib>
+#include <fstream>
+#include <iostream>
+#include <vector>
 
-#include "InsertionSort.cpp"
-#include "SelectionSort.cpp"
-#include "QuickSort.cpp"
-#include "MergeSort.cpp"
+#include <chrono>
+
 #include "HeapSort.cpp"
+#include "InsertionSort.cpp"
+#include "MergeSort.cpp"
+#include "QuickSort.cpp"
+#include "SelectionSort.cpp"
 
 using namespace std;
 void testSorting(vector<int> &fin, vector<int> &TC, bool show);
 
-ifstream fin("../data.in");
-ofstream fout("data.out");
+ifstream rin("../data.in");
+// ofstream fout("data.out");
 
 int main() {
   int a;
-  while (fin >> a) {
-    cout << a << '\n';
+  vector<int> fin;
+  while (rin >> a) {
+    fin.push_back(a);
   }
+  cout << "Inputs size: " << fin.size() << '\n';
+  vector<int> tmp(fin);
+  vector<int> TC(fin);
+
+  /* Benchmarking */
+  chrono::time_point<chrono::system_clock> start, end;
+
+  // Start time.
+  start = chrono::system_clock::now();
+
+  // insertionSort(TC);
+  // selectionSort(TC);
+  heapSort(TC);
+  // mergeSort(TC, tmp, 0, TC.size() - 1);
+  // randomized_quick_sort(TC, 0, TC.size() - 1);
+
+  // End time.
+  end = chrono::system_clock::now();
+
+  // Time elapsed.
+  chrono::duration<double> timeElapsed = end - start;
+  cout << "\nTime elapsed: " << timeElapsed.count() << " seconds" << '\n';
+
+  // Testing
+  // testSorting(fin, TC, false);
 
   return 0;
 }
 
-
-// --------------------------------------------------------------------------------------- 
+// ---------------------------------------------------------------------------------------
 void testSorting(vector<int> &fin, vector<int> &TC, bool show) {
   std::sort(fin.begin(), fin.end());
 

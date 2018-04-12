@@ -1,10 +1,6 @@
 import java.io.*;
 import java.util.*;
 
-import com.google.caliper.Benchmark;
-import com.google.caliper.runner.CaliperMain;
-
-
 public class Demo {
   public static int[] getData() throws IOException {
     try (BufferedReader rin = new BufferedReader(new FileReader("../data.in"));
@@ -20,50 +16,60 @@ public class Demo {
     }
   }
 
+  static long startTime;
+  static long endTime;
+  static long duration;
+  static final double secondsPrecision = 1000000000.0;
+  static double seconds;
+
   public static void main(String[] args) throws IOException {
-    // int[] fin = getData();
+    int[] fin = getData();
 
-    CaliperMain.main(DemoBenchmark.class, args);
+    InsertionSort iSort = new InsertionSort();
+    SelectionSort sSort = new SelectionSort();
+    MergeSort mSort = new MergeSort();
+    QuickSort qSort = new QuickSort();
+    HeapSort hSort = new HeapSort();
+    ModernSort newSort = new ModernSort();
 
-    // InsertionSort iSort = new InsertionSort();
-    // SelectionSort sSort = new SelectionSort();
-    // MergeSort mSort = new MergeSort();
-    // QuickSort qSort = new QuickSort();
-    // HeapSort hSort = new HeapSort();
-    // ModernSort nSort = new ModernSort();
+    int[] tc1 = fin.clone();
+    int[] tc2 = fin.clone();
+    int[] tc3 = fin.clone();
+    int[] tc4 = fin.clone();
+    int[] tc5 = fin.clone();
 
-    // int[] fin1 = fin.clone();
-    // int[] fin2 = fin.clone();
-    // int[] fin00 = fin.clone();
+    int[] tc00 = fin.clone();
+    int[] tc01 = fin.clone();
+    int[] tc02 = fin.clone();
+    int[] tc03 = fin.clone();
 
+    /* Benchmarking */
+    startTime = System.nanoTime();
+    
     /* InsertionSort */
-    // long startTime = System.nanoTime();
-    // iSort.naive(fin1);
-    // long endTime = System.nanoTime();
-    // long duration = (endTime - startTime);
-    // System.out.println("\nInsert: " + duration);
+    // iSort.naive(tc1);
 
-    /* Quicksort */    
-    // startTime = System.nanoTime();
-    // qSort.naive(fin2, 0, fin.length - 1);    
-    // endTime = System.nanoTime();
-    // duration = (endTime - startTime);
-    // System.out.println("\nQuick : " + duration);
+    /* SelectionSort */
+    // sSort.naive(tc2);
+
+    /* MergeSort */
+    // mSort.naive(tc3);
+
+    /* QuickSort */
+    // qSort.naive(tc4, 0, fin.length - 1);
+
+    /* HeapSort */
+    // hSort.naive(tc5);
 
     /* Java built-in sorting methods */
-    // startTime = System.nanoTime();
-    // nSort.pSort(fin00); // Using Parallel sort
-    // endTime = System.nanoTime();
-    // duration = (endTime - startTime);
-    // System.out.println("\npSort : " + duration);
-  }
+    newSort.pSort(tc00); // Using Parallel sort
+    // newSort.sort1(tc01); // Using sort with Comparator
+    // newSort.sort2(tc02); // Using Lambda with sort
+    // Arrays.sort(tc03); //Built-in quick-sort
 
-  @Benchmark
-  void timeStringBuilder(int reps) {
-    StringBuilder sb = new StringBuilder();
-    for (int i = 0; i < reps; i++) {
-      sb.setLength(0);
-      sb.append("hello world");
-    }
+    endTime = System.nanoTime();
+    duration = (endTime - startTime);
+    seconds = (double) duration / secondsPrecision;
+    System.out.println("\nTime elapsed: " + seconds + " seconds");
   }
 }
