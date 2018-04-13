@@ -1,66 +1,35 @@
-	Wed Mar 28 16:43 2018 Time and Allocation Profiling Report  (Final)
+	Thu Apr 12 05:57 2018 Time and Allocation Profiling Report  (Final)
 
-	   Demo +RTS -s -p -RTS
+	   Demo +RTS -P -sprogram.stats -RTS
 
-	total time  =       12.50 secs   (12496 ticks @ 1000 us, 1 processor)
-	total alloc = 19,200,814,856 bytes  (excludes profiling overheads)
+	total time  =        0.13 secs   (129 ticks @ 1000 us, 1 processor)
+	total alloc =  56,994,904 bytes  (excludes profiling overheads)
 
-COST CENTRE      MODULE        %time %alloc
+COST CENTRE      MODULE        SRC                       %time %alloc  ticks     bytes
 
-readF            Main           89.8   83.8
-main.singlewords Main            5.7   10.6
-insert           InsertionSort   2.1    2.2
-main             Main            2.0    3.4
-
-
-                                                               individual     inherited
-COST CENTRE        MODULE                    no.     entries  %time %alloc   %time %alloc
-
-MAIN               MAIN                       51           0    0.0    0.0   100.0  100.0
- main              Main                      103           0    2.0    3.4   100.0  100.0
-  insertionSort    InsertionSort             108     2100501    0.4    0.0     2.5    2.2
-   insert          InsertionSort             109     2100500    2.1    2.2     2.1    2.2
-  main.singlewords Main                      107           1    5.7   10.6     5.7   10.6
-  main.fin         Main                      104           1    0.0    0.0    89.8   83.8
-   readF           Main                      106           0   89.8   83.8    89.8   83.8
- CAF               Main                       97           0    0.0    0.0     0.0    0.0
-  readF            Main                      105           1    0.0    0.0     0.0    0.0
-  main             Main                      102           1    0.0    0.0     0.0    0.0
- CAF               GHC.IO.Handle.FD           91           0    0.0    0.0     0.0    0.0
- CAF               GHC.IO.Handle.Internals    90           0    0.0    0.0     0.0    0.0
- CAF               Text.Read.Lex              87           0    0.0    0.0     0.0    0.0
- CAF               GHC.Conc.Signal            86           0    0.0    0.0     0.0    0.0
- CAF               GHC.IO.Encoding            84           0    0.0    0.0     0.0    0.0
- CAF               GHC.IO.FD                  74           0    0.0    0.0     0.0    0.0
- CAF               GHC.IO.Encoding.Iconv      69           0    0.0    0.0     0.0    0.0
-
-tumurtogtokh:~/Desktop/BCUR2018/Haskell$ time ./Demo +RTS -s -p
-  32,313,180,536 bytes allocated in the heap
-   5,698,761,448 bytes copied during GC
-     652,017,376 bytes maximum residency (19 sample(s))
-       8,446,376 bytes maximum slop
-            1879 MB total memory in use (0 MB lost due to fragmentation)
-
-                                     Tot time (elapsed)  Avg pause  Max pause
-  Gen  0     62106 colls,     0 par    2.881s   2.877s     0.0000s    0.0010s
-  Gen  1        19 colls,     0 par    2.075s  41.557s     2.1872s    33.8946s
-
-  INIT    time    0.000s  (  0.000s elapsed)
-  MUT     time   12.991s  (  7.982s elapsed)
-  GC      time    4.955s  ( 44.434s elapsed)
-  RP      time    0.000s  (  0.000s elapsed)
-  PROF    time    0.000s  (  0.000s elapsed)
-  EXIT    time    0.102s  ( 19.617s elapsed)
-  Total   time   18.050s  ( 72.033s elapsed)
-
-  %GC     time      27.5%  (61.7% elapsed)
-
-  Alloc rate    2,487,353,759 bytes per MUT second
-
-  Productivity  72.5% of total user, 18.2% of total elapsed
+readF            Main          Demo.hs:27:1-16            82.9   80.7    107  45993696
+main.singlewords Main          Demo.hs:17:9-36            11.6   12.1     15   6895104
+main             Main          Demo.hs:(13,1)-(23,17)      3.9    3.6      5   2069480
+insert           InsertionSort InsertionSort.hs:11:1-67    1.6    3.5      2   1999296
 
 
-real    1m15.695s
-user    0m17.306s
-sys     0m0.748s
+                                                                                             individual      inherited
+COST CENTRE        MODULE                   SRC                           no.     entries  %time %alloc   %time %alloc  ticks     bytes
 
+MAIN               MAIN                     <built-in>                     52          0    0.0    0.0   100.0  100.0      0       520
+ CAF               GHC.IO.Encoding.CodePage <entire-module>                85          0    0.0    0.0     0.0    0.0      0       184
+ CAF               GHC.IO.Handle.FD         <entire-module>                83          0    0.0    0.1     0.0    0.1      0     34736
+ CAF               GHC.IO.FD                <entire-module>                82          0    0.0    0.0     0.0    0.0      0        16
+ CAF               GHC.IO.Encoding          <entire-module>                81          0    0.0    0.0     0.0    0.0      0        72
+ CAF               Text.Read.Lex            <entire-module>                72          0    0.0    0.0     0.0    0.0      0       664
+ CAF               GHC.IO.Handle.Internals  <entire-module>                70          0    0.0    0.0     0.0    0.0      0        24
+ CAF               GHC.IO.Exception         <entire-module>                69          0    0.0    0.0     0.0    0.0      0       344
+ CAF               Main                     <entire-module>                66          0    0.0    0.0     0.0    0.0      0       752
+  main             Main                     Demo.hs:(13,1)-(23,17)        104          1    0.0    0.0     0.0    0.0      0         0
+  readF            Main                     Demo.hs:27:1-16               107          1    0.0    0.0     0.0    0.0      0       152
+ main              Main                     Demo.hs:(13,1)-(23,17)        105          0    3.9    3.6   100.0   99.9      5   2069480
+  insertionSort    InsertionSort            InsertionSort.hs:(7,1)-(8,50) 110      10001    0.0    0.0     1.6    3.5      0         0
+   insert          InsertionSort            InsertionSort.hs:11:1-67      111      10000    1.6    3.5     1.6    3.5      2   1999296
+  main.fin         Main                     Demo.hs:18:9-31               106          1    0.0    0.0    82.9   80.7      0        16
+   readF           Main                     Demo.hs:27:1-16               108          0   82.9   80.7    82.9   80.7    107  45993544
+  main.singlewords Main                     Demo.hs:17:9-36               109          1   11.6   12.1    11.6   12.1     15   6895104

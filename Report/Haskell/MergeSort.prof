@@ -1,71 +1,39 @@
-	Wed Mar 28 16:39 2018 Time and Allocation Profiling Report  (Final)
+	Thu Apr 12 05:58 2018 Time and Allocation Profiling Report  (Final)
 
-	   Demo +RTS -s -p -RTS
+	   Demo +RTS -P -sprogram.stats -RTS
 
-	total time  =       13.96 secs   (13962 ticks @ 1000 us, 1 processor)
-	total alloc = 21,610,516,248 bytes  (excludes profiling overheads)
+	total time  =        0.13 secs   (134 ticks @ 1000 us, 1 processor)
+	total alloc =  62,999,560 bytes  (excludes profiling overheads)
 
-COST CENTRE      MODULE    %time %alloc
+COST CENTRE      MODULE    SRC                          %time %alloc  ticks     bytes
 
-readF            Main       78.7   74.4
-mergeSort.(...)  MergeSort  11.0   12.0
-main.singlewords Main        4.8    9.4
-main             Main        1.9    3.0
-merge            MergeSort   1.8    0.7
-mergeSort        MergeSort   1.8    0.4
-
-
-                                                               individual     inherited
-COST CENTRE        MODULE                    no.     entries  %time %alloc   %time %alloc
-
-MAIN               MAIN                       51           0    0.0    0.0   100.0  100.0
- main              Main                      103           0    1.9    3.0   100.0  100.0
-  mergeSort        MergeSort                 108     4200999    1.8    0.4    14.6   13.1
-   merge           MergeSort                 112     2100499    1.8    0.7     1.8    0.7
-   mergeSort.b     MergeSort                 111     2100499    0.0    0.0     0.0    0.0
-   mergeSort.a     MergeSort                 110     2100499    0.0    0.0     0.0    0.0
-   mergeSort.(...) MergeSort                 109     2100499   11.0   12.0    11.0   12.0
-  main.singlewords Main                      107           1    4.8    9.4     4.8    9.4
-  main.fin         Main                      104           1    0.0    0.0    78.7   74.4
-   readF           Main                      106           0   78.7   74.4    78.7   74.4
- CAF               Main                       97           0    0.0    0.0     0.0    0.0
-  readF            Main                      105           1    0.0    0.0     0.0    0.0
-  main             Main                      102           1    0.0    0.0     0.0    0.0
- CAF               GHC.IO.Handle.FD           91           0    0.0    0.0     0.0    0.0
- CAF               GHC.IO.Handle.Internals    90           0    0.0    0.0     0.0    0.0
- CAF               Text.Read.Lex              87           0    0.0    0.0     0.0    0.0
- CAF               GHC.Conc.Signal            86           0    0.0    0.0     0.0    0.0
- CAF               GHC.IO.Encoding            84           0    0.0    0.0     0.0    0.0
- CAF               GHC.IO.FD                  74           0    0.0    0.0     0.0    0.0
- CAF               GHC.IO.Encoding.Iconv      69           0    0.0    0.0     0.0    0.0
-
-tumurtogtokh:~/Desktop/BCUR2018/Haskell$ time ./Demo +RTS -s -p
-  36,163,743,624 bytes allocated in the heap
-   5,827,463,488 bytes copied during GC
-     690,096,184 bytes maximum residency (23 sample(s))
-     125,226,000 bytes maximum slop
-            1792 MB total memory in use (0 MB lost due to fragmentation)
-
-                                     Tot time (elapsed)  Avg pause  Max pause
-  Gen  0     69796 colls,     0 par    2.631s   2.626s     0.0000s    0.0010s
-  Gen  1        23 colls,     0 par    2.617s   3.579s     0.1556s    1.3269s
-
-  INIT    time    0.000s  (  0.000s elapsed)
-  MUT     time   14.688s  ( 15.201s elapsed)
-  GC      time    5.249s  (  6.205s elapsed)
-  RP      time    0.000s  (  0.000s elapsed)
-  PROF    time    0.000s  (  0.000s elapsed)
-  EXIT    time    0.038s  (  0.186s elapsed)
-  Total   time   19.978s  ( 21.593s elapsed)
-
-  %GC     time      26.3%  (28.7% elapsed)
-
-  Alloc rate    2,462,066,238 bytes per MUT second
-
-  Productivity  73.7% of total user, 68.2% of total elapsed
+readF            Main      Demo.hs:27:1-16               70.9   73.0     95  45993696
+mergeSort.(...)  MergeSort MergeSort.hs:10:20-59         12.7   11.2     17   7044024
+main.singlewords Main      Demo.hs:17:9-36               11.2   10.9     15   6895104
+main             Main      Demo.hs:(13,1)-(23,17)         3.7    3.3      5   2069480
+merge            MergeSort MergeSort.hs:(13,1)-(17,32)    0.7    1.1      1    719928
 
 
-real    0m31.152s
-user    0m19.153s
-sys     0m0.829s
+                                                                                           individual      inherited
+COST CENTRE        MODULE                   SRC                         no.     entries  %time %alloc   %time %alloc  ticks     bytes
 
+MAIN               MAIN                     <built-in>                   52          0    0.0    0.0   100.0  100.0      0       520
+ CAF               GHC.IO.Encoding.CodePage <entire-module>              85          0    0.7    0.0     0.7    0.0      1       184
+ CAF               GHC.IO.Handle.FD         <entire-module>              83          0    0.0    0.1     0.0    0.1      0     34736
+ CAF               GHC.IO.FD                <entire-module>              82          0    0.0    0.0     0.0    0.0      0        16
+ CAF               GHC.IO.Encoding          <entire-module>              81          0    0.0    0.0     0.0    0.0      0        72
+ CAF               Text.Read.Lex            <entire-module>              72          0    0.0    0.0     0.0    0.0      0       664
+ CAF               GHC.IO.Handle.Internals  <entire-module>              70          0    0.0    0.0     0.0    0.0      0        24
+ CAF               GHC.IO.Exception         <entire-module>              69          0    0.0    0.0     0.0    0.0      0       344
+ CAF               Main                     <entire-module>              66          0    0.0    0.0     0.0    0.0      0       752
+  main             Main                     Demo.hs:(13,1)-(23,17)      104          1    0.0    0.0     0.0    0.0      0         0
+  readF            Main                     Demo.hs:27:1-16             107          1    0.0    0.0     0.0    0.0      0       152
+ main              Main                     Demo.hs:(13,1)-(23,17)      105          0    3.7    3.3    99.3   99.9      5   2069480
+  mergeSort        MergeSort                MergeSort.hs:(7,1)-(10,59)  110      19999    0.0    0.4    13.4   12.7      0    240000
+   merge           MergeSort                MergeSort.hs:(13,1)-(17,32) 114       9999    0.7    1.1     0.7    1.1      1    719928
+   mergeSort.(...) MergeSort                MergeSort.hs:10:20-59       111       9999   12.7   11.2    12.7   11.2     17   7044024
+   mergeSort.a     MergeSort                MergeSort.hs:10:20-59       112       9999    0.0    0.0     0.0    0.0      0         0
+   mergeSort.b     MergeSort                MergeSort.hs:10:20-59       113       9999    0.0    0.0     0.0    0.0      0         0
+  main.fin         Main                     Demo.hs:18:9-31             106          1    0.0    0.0    70.9   73.0      0        16
+   readF           Main                     Demo.hs:27:1-16             108          0   70.9   73.0    70.9   73.0     95  45993544
+  main.singlewords Main                     Demo.hs:17:9-36             109          1   11.2   10.9    11.2   10.9     15   6895104

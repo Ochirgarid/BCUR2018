@@ -9,6 +9,8 @@ Haskell/timeit-2\.0/
 *.exe
 *.out
 *.in
+*.xlsx
+*.docx
 stder
 
 

@@ -21,9 +21,12 @@ public class Demo {
   static long duration;
   static final double secondsPrecision = 1000000000.0;
   static double seconds;
+  static int[] fin;
+  static int[] tc;
 
   public static void main(String[] args) throws IOException {
-    int[] fin = getData();
+    fin = getData();
+    tc = fin.clone();
 
     InsertionSort iSort = new InsertionSort();
     SelectionSort sSort = new SelectionSort();
@@ -32,44 +35,34 @@ public class Demo {
     HeapSort hSort = new HeapSort();
     ModernSort newSort = new ModernSort();
 
-    int[] tc1 = fin.clone();
-    int[] tc2 = fin.clone();
-    int[] tc3 = fin.clone();
-    int[] tc4 = fin.clone();
-    int[] tc5 = fin.clone();
-
-    int[] tc00 = fin.clone();
-    int[] tc01 = fin.clone();
-    int[] tc02 = fin.clone();
-    int[] tc03 = fin.clone();
-
     /* Benchmarking */
     startTime = System.nanoTime();
     
     /* InsertionSort */
-    // iSort.naive(tc1);
+    iSort.naive(tc);
 
     /* SelectionSort */
-    // sSort.naive(tc2);
+    // sSort.naive(tc);
 
     /* MergeSort */
-    // mSort.naive(tc3);
+    // mSort.naive(tc);
 
     /* QuickSort */
-    // qSort.naive(tc4, 0, fin.length - 1);
+    // qSort.naive(tc, 0, tc.length - 1);
 
     /* HeapSort */
-    // hSort.naive(tc5);
+    // hSort.naive(tc);
 
     /* Java built-in sorting methods */
-    newSort.pSort(tc00); // Using Parallel sort
-    // newSort.sort1(tc01); // Using sort with Comparator
-    // newSort.sort2(tc02); // Using Lambda with sort
-    // Arrays.sort(tc03); //Built-in quick-sort
+    // newSort.pSort(tc); // Using Parallel sort
+    // newSort.sort1(tc); // Using sort with Comparator
+    // newSort.sort2(tc); // Using Lambda with sort
+    // Arrays.sort(tc); //Built-in quick-sort
 
     endTime = System.nanoTime();
     duration = (endTime - startTime);
     seconds = (double) duration / secondsPrecision;
     System.out.println("\nTime elapsed: " + seconds + " seconds");
+    // System.out.println("\nInputs: " + fin.length);
   }
 }

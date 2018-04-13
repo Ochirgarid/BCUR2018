@@ -27,13 +27,13 @@ tc = fin.dup
 
 ## --> Sorting
 beginning_time = Time.now
-# tc = quick_sort(tc)
 # tc = insertion_sort(tc)
-# tc = selection_sort(tc)
+tc = selection_sort(tc)
 # tc = merge_sort(tc)
+# tc = quick_sort(tc)
 # tc = heap_sort(tc)
 
-tc.sort! #built-in sort
+# tc.sort! #built-in sort
 end_time = Time.now
 
 ## --> Testing

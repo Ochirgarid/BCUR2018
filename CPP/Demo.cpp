@@ -36,11 +36,14 @@ int main() {
   // Start time.
   start = chrono::system_clock::now();
 
-  // insertionSort(TC);
+  insertionSort(TC);
   // selectionSort(TC);
-  heapSort(TC);
   // mergeSort(TC, tmp, 0, TC.size() - 1);
   // randomized_quick_sort(TC, 0, TC.size() - 1);
+  // heapSort(TC);
+
+  // Built-in sort
+  // std::sort(TC.begin(), TC.end());
 
   // End time.
   end = chrono::system_clock::now();
@@ -51,6 +54,9 @@ int main() {
 
   // Testing
   // testSorting(fin, TC, false);
+
+  // Run command
+  // g++ -std=c++11 -o2 Demo.cpp -lm -o demo
 
   return 0;
 }

@@ -40,7 +40,8 @@
       "typeinfo": "c",
       "utility": "c",
       "cassert": "cpp",
-      "algorithm": "cpp"
+      "algorithm": "cpp",
+      "time.h": "c"
     }
   }
 }

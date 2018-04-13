@@ -12,20 +12,20 @@ script_dir = os.path.abspath(os.path.join(os.path.dirname(__file__),".."))
 fin_path = os.path.join(script_dir, 'data.in')
 fin = [int(line.rstrip('\n')) for line in open(fin_path)]
 
-print("Input length: {}".format(len(fin)))
-print("Input type: {}".format(fin[0].__class__))
+# print("Input length: {}".format(len(fin)))
+# print("Input type: {}".format(fin[0].__class__))
 
 
 # Benchmarking
 start = time.time()
 
 # INS.insertion_sort(fin)
+# SEL.selection_sort_naive(fin)
+# MS.merge_sort_naive(fin)
 # QS.quickSort_naive(fin, 0, len(fin) - 1)
 # QS.quickSort_list(fin)
 # QS.quickSort_filter(fin)
 # HS.heap_sort(fin)
-# MS.merge_sort_naive(fin)
-SEL.selection_sort_naive(fin)
 
 # Built-in sorting
 # fin.sort()
