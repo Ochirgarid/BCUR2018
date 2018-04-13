@@ -22,3 +22,10 @@ Java/caliper-1.0-beta-2.jar
 Java/.classpath
 Python/__pycache__/
 Report/
+
+Java/Test.java
+C/dev.c
+CPP/dev.cpp
+Python/dev.py
+Ruby/dev.rb
+Haskell/dev.hs

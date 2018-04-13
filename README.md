@@ -29,4 +29,3 @@ So in this study, run-time analysis of basic, yet an industry standard, sorting 
 * Include functional implementation of Java. Testing is required.
 
 
-## Tumurtogtokh Davaakhuu 2018
