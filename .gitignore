@@ -12,6 +12,7 @@ Haskell/timeit-2\.0/
 *.xlsx
 *.docx
 *.stats
+*.prof
 stder
 
 .vscode/
