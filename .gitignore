@@ -11,15 +11,14 @@ Haskell/timeit-2\.0/
 *.in
 *.xlsx
 *.docx
+*.stats
 stder
 
-
+.vscode/
 Tmp/
 DS/
 Java/Bench
 Java/caliper-1.0-beta-2.jar
 Java/.classpath
 Python/__pycache__/
-
-
 Report/
