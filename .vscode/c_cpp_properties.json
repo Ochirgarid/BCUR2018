@@ -52,10 +52,13 @@
                 ],
                 "limitSymbolsToIncludedHeaders": true,
                 "databaseFilename": ""
-            }
+            },
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c11",
+            "cppStandard": "c++17"
         },
         {
-          "name": "Win32",
+            "name": "Win32",
             "includePath": [
                 "${workspaceRoot}",
                 "C:/MinGW64/lib/gcc/mingw32/5.3.0/include/c++",
@@ -73,7 +76,7 @@
             "intelliSenseMode": "clang-x64",
             "browse": {
                 "path": [
-                  "${workspaceRoot}",
+                    "${workspaceRoot}",
                     "C:/MinGW64/lib/gcc/mingw32/5.3.0/include",
                     "C:/MinGW64/lib/gcc/mingw32/5.3.0/include-fixed",
                     "C:/MinGW64/include/*"

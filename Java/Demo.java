@@ -28,18 +28,18 @@ public class Demo {
     fin = getData();
     tc = fin.clone();
 
-    InsertionSort iSort = new InsertionSort();
-    SelectionSort sSort = new SelectionSort();
-    MergeSort mSort = new MergeSort();
-    QuickSort qSort = new QuickSort();
+    // InsertionSort iSort = new InsertionSort();
+    // SelectionSort sSort = new SelectionSort();
+    // MergeSort mSort = new MergeSort();
+    // QuickSort qSort = new QuickSort();
     HeapSort hSort = new HeapSort();
-    ModernSort newSort = new ModernSort();
+    // ModernSort newSort = new ModernSort();
 
     /* Benchmarking */
     startTime = System.nanoTime();
     
     /* InsertionSort */
-    iSort.naive(tc);
+    // iSort.naive(tc);
 
     /* SelectionSort */
     // sSort.naive(tc);
@@ -51,7 +51,8 @@ public class Demo {
     // qSort.naive(tc, 0, tc.length - 1);
 
     /* HeapSort */
-    // hSort.naive(tc);
+    hSort.naive(tc);
+    // hSort.buildMax(tc);
 
     /* Java built-in sorting methods */
     // newSort.pSort(tc); // Using Parallel sort
@@ -64,5 +65,14 @@ public class Demo {
     seconds = (double) duration / secondsPrecision;
     System.out.println("\nTime elapsed: " + seconds + " seconds");
     // System.out.println("\nInputs: " + fin.length);
+
+    Arrays.sort(fin); //Built-in quick-sort    
+    for (int i=0; i<fin.length; i++) {
+      if (fin[i] != tc[i]) {
+        System.out.println("Sorting is incorrect at" + i);  
+        break;
+      }
+    }
+    System.out.println("Successful sort :D");
   }
 }
