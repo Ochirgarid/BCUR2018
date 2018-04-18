@@ -12,17 +12,22 @@ So in this study, run-time analysis of basic, yet an industry standard, sorting 
 
 
 ## Link to poster:
-[Click here to see the poster](../blob/master/Poster.pdf)
+[Click here to see the poster](../master/Poster.pdf)
 
 
 ## Results:
 ![alt text](https://github.com/Tumurtogtokh/BCUR2018/blob/master/n2.jpg "Figure 01: Comparison of O(n2) sorting algorithms with built-in sort (second)")
+
 Figure 01: Comparison of O(n2) sorting algorithms with built-in sort (second)
 
+
 ![alt text](https://github.com/Tumurtogtokh/BCUR2018/blob/master/nlogn.jpg "Figure 02: Comparison of n2 sorting algorithms with built-in sort (second)")
+
 Figure 02: Comparison of n2 sorting algorithms with built-in sort (second)
 
+
 ![alt text](https://github.com/Tumurtogtokh/BCUR2018/blob/master/sort.jpg "Figure 03: Comparison of built-in sort function and quicksort implementation (second)")
+
 Figure 03: Comparison of built-in sort function and quicksort implementation (second)
 
 
